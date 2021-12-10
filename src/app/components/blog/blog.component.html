@@ -1,0 +1,21 @@
+<div class="container">
+<!--  <mat-form-field>-->
+<!--    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">-->
+<!--  </mat-form-field>-->
+
+  <mat-card *ngFor="let blog of pageSlice;" (click)="openModal(blog.id)" class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>{{blog.title}}</mat-card-title>
+      <img mat-card-md-image src="{{this.photo?.thumbnailUrl}}" alt="">
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>{{blog.body}}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-paginator [length]="this.blogs.length"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[10, 20, 50]"
+                 (page)="onBlogChange($event)">
+  </mat-paginator>
+</div>
+
