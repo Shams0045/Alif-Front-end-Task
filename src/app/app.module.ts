@@ -9,20 +9,24 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import { ModalComponent } from './components/blog/modal/modal.component'
+import {FormsModule} from '@angular/forms';
+import {FilterPipe} from './_directives/filter-pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogComponent,
-    ModalComponent
+    ModalComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

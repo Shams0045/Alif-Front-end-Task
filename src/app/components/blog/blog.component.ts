@@ -4,7 +4,6 @@ import {Blogs, Photos} from '../../_models/blog';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalComponent} from './modal/modal.component';
 import {PageEvent} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-blog',
@@ -24,19 +23,12 @@ export class BlogComponent implements OnInit {
   thumbnail = 1;
   body = 'test';
   blogId: Blogs | undefined;
-
-  dataSource = new MatTableDataSource(this.blogs);
+  term = '';
 
   ngOnInit(): void {
     this.getAllBlogs();
   }
-
-  // applyFilter(filterValue: string): void {
-  //   filterValue = filterValue.trim(); // Remove whitespace
-  //   filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-  //   this.dataSource.filter = filterValue;
-  // }
-
+ 
   onBlogChange(event: PageEvent): void {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;

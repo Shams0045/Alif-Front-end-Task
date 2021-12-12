@@ -1,9 +1,9 @@
 <div class="container">
-<!--  <mat-form-field>-->
-<!--    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">-->
-<!--  </mat-form-field>-->
-
-  <mat-card *ngFor="let blog of pageSlice;" (click)="openModal(blog.id)" class="example-card">
+  <p>
+    Фильтр по имени поста:
+  </p>
+  <input type="text" [(ngModel)]='term' class="input">
+  <mat-card *ngFor="let blog of pageSlice | filter: term " (click)="openModal(blog.id)" class="example-card">
     <mat-card-title-group>
       <mat-card-title>{{blog.title}}</mat-card-title>
       <img mat-card-md-image src="{{this.photo?.thumbnailUrl}}" alt="">
